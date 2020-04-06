@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,6 +35,7 @@ public class IdFragment extends Fragment {
 
     RecyclerView recyclerView;
     ProvinsiAdapter provinsiAdapter;
+    ProgressBar progressBar;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -47,6 +49,7 @@ public class IdFragment extends Fragment {
         recyclerView = view.findViewById(R.id.rc_provinsi);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
+        progressBar = view.findViewById(R.id.progressbar);
 //
 
 
@@ -64,10 +67,15 @@ public class IdFragment extends Fragment {
             @Override
             public void onResponse(Call<List<Provinsi>> call, Response<List<Provinsi>> response) {
                 if (response.isSuccessful() && response.body() !=null){
+                    progressBar.setVisibility(View.GONE);
+                    recyclerView.setVisibility(View.VISIBLE);
                     List<Provinsi> provinsis = response.body();
                     provinsiAdapter = new ProvinsiAdapter(provinsis);
                     recyclerView.setAdapter(provinsiAdapter);
                     provinsiAdapter.notifyDataSetChanged();
+                }else {
+                    progressBar.setVisibility(View.VISIBLE);
+                    recyclerView.setVisibility(View.GONE);
                 }
             }
 
