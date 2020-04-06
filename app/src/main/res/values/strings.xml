@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Covid19 Data</string>
+    <string name="title_home">Home</string>
+    <string name="title_id">Indonesia</string>
+    <string name="title_global">Global</string>
+    <string name="total_positive">Total Positive</string>
+    <string name="orang">Orang</string>
+    <string name="total_meninggal">Total Meninggal</string>
+    <string name="total_sembuh">Total Sembuh</string>
+    <string name="total_kasus">Total Kasus</string>
+    <string name="positif">Positif</string>
+    <string name="meninggal">Meninggal</string>
+    <string name="sembuh">Sembuh</string>
+</resources>
